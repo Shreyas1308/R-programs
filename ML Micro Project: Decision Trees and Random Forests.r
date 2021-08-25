@@ -26,3 +26,6 @@ test = subset(df,sample==F)
 tree <- rpart(Private ~ . ,method="class",data=train)
 tree.preds <- predict(tree,test)
 head(tree.preds)
+
+tree.preds <- as.data.frame(tree.preds)
+tree.preds$Private <- ifelse(tree.preds$Yes > 0.5,"Yes","No")
