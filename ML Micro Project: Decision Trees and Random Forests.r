@@ -16,3 +16,13 @@ ggplot(df,aes(Grad.Rate)) + geom_histogram(aes(fill=Private),color="black",bins=
 subset(df,Grad.Rate>100)
 
 df['Cazenovia College','Grad.Rate'] <- 100
+
+set.seed(101)
+
+sample = sample.split(df$Private,SplitRatio=0.7)
+train = subset(df,sample==T)
+test = subset(df,sample==F)
+
+tree <- rpart(Private ~ . ,method="class",data=train)
+tree.preds <- predict(tree,test)
+head(tree.preds)
