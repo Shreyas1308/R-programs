@@ -29,3 +29,8 @@ head(tree.preds)
 
 tree.preds <- as.data.frame(tree.preds)
 tree.preds$Private <- ifelse(tree.preds$Yes > 0.5,"Yes","No")
+
+table(tree.preds$Private,test$Private)
+
+library(rpart.plot)
+prp(tree)
