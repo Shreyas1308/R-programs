@@ -37,3 +37,4 @@ prp(tree)
 
 library(randomForest)
 rf.model <- randomForest(Private ~ ., data=train,importance=TRUE)
+p <- predict(rf.model,test)
