@@ -36,3 +36,4 @@ library(rpart.plot)
 prp(tree)
 
 library(randomForest)
+rf.model <- randomForest(Private ~ ., data=train,importance=TRUE)
