@@ -34,3 +34,5 @@ table(tree.preds$Private,test$Private)
 
 library(rpart.plot)
 prp(tree)
+
+library(randomForest)
